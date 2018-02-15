@@ -1,6 +1,6 @@
 use std::io::{self, Write};
 use std::env;
-use std::process::Command;
+use std::process::{Command, Stdio};
 
 fn main() {
     // Collect the command from the input
@@ -20,8 +20,9 @@ fn main() {
                 Command::new("sh")
                     .arg("-c")
                     .arg(command)
-                    .spawn()
-                    .expect("foo");
+                    .stdout(Stdio::inherit())
+                    .output()
+                    .expect("Something went wrong");
             }
             else {
                 println!("Okay, not running!")
