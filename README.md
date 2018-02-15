@@ -34,3 +34,23 @@ Then, ...
 $ kp apply -F *
 Are you sure? (y/n)
 ```
+
+## Future
+
+I might create other sanity check levels/modes:
+
+```
+$ alias dangerous=`confirm-before --math dangerous --production`
+$ dangerous get foo
+How much is 19 - 3?
+```
+
+Conditionals, because it can become very annoying to confirm read-only commands...
+
+```
+$ alias dangerous=`confirm-before --matching delete|d|rm|apply dangerous --production`
+$ dangerous delete foo
+Are you sure? (y/n)
+...
+$ dangerous get foo -> doesn't match the regexp
+```
