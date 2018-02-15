@@ -11,7 +11,6 @@ fn main() {
 
     // Confirm
     println!("Are you sure? (y/n)");
-
     let mut answer = String::new();
     match io::stdin().read_line(&mut answer) {
         Ok(_) => {

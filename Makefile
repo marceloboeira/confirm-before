@@ -1,6 +1,8 @@
 CARGO_BIN = `which cargo`
 TARGET_PATH = `pwd`/target/debug
 BIN_NAME = confirm-before
+BIN_PATH = $(TARGET_PATH)/$(BIN_NAME)
+INSTALLED_BIN_PATH = /usr/local/bin/$(BIN_NAME)
 
 .PHONY: build
 build:
@@ -8,4 +10,8 @@ build:
 
 .PHONY: run
 run: build
-	$(TARGET_PATH)/$(BIN_NAME)
+	$(BIN_PATH)
+
+.PHONY: install
+install: build
+	cp $(BIN_PATH) $(INSTALLED_BIN_PATH)
