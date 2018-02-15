@@ -3,6 +3,7 @@ TARGET_PATH = `pwd`/target/debug
 BIN_NAME = confirm-before
 BIN_PATH = $(TARGET_PATH)/$(BIN_NAME)
 INSTALLED_BIN_PATH = /usr/local/bin/$(BIN_NAME)
+TESTS_PATH = `pwd`/tests/
 
 .PHONY: build
 build:
@@ -15,3 +16,7 @@ run: build
 .PHONY: install
 install: build
 	cp $(BIN_PATH) $(INSTALLED_BIN_PATH)
+
+.PHONY: test
+test:
+	@$(TESTS_PATH)/integration.sh
