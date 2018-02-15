@@ -1,4 +1,4 @@
-use std::io;
+use std::io::{self, Write};
 use std::env;
 use std::process::Command;
 
@@ -10,7 +10,9 @@ fn main() {
                               .fold(String::new(), |acc, item| { acc + " " + item });
 
     // Confirm
-    println!("Are you sure? (y/n)");
+    print!("Are you sure? (y/n) ");
+    io::stdout().flush().unwrap();
+
     let mut answer = String::new();
     match io::stdin().read_line(&mut answer) {
         Ok(_) => {
