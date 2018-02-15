@@ -4,6 +4,13 @@
   <p align="center">Sanity check for your shell commands<p>
 </p>
 
+## Installing
+
+```
+brew tap marceloboeira/formulas
+brew install marceloboeira/formulas/confirm-before
+```
+
 ## Motivation
 
 I have recently started working with a lot of DevOps CLIs that interact with staging and production servers.
