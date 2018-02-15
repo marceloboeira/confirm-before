@@ -3,7 +3,7 @@ TARGET_PATH = `pwd`/target/debug
 BIN_NAME = confirm-before
 BIN_PATH = $(TARGET_PATH)/$(BIN_NAME)
 INSTALLED_BIN_PATH = /usr/local/bin/$(BIN_NAME)
-TESTS_PATH = `pwd`/tests/
+TESTS_PATH = `pwd`/tests
 
 .PHONY: build
 build:
