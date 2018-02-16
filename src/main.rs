@@ -21,6 +21,7 @@ fn main() {
                     .arg("-c")
                     .arg(command)
                     .stdout(Stdio::inherit())
+                    .stderr(Stdio::inherit())
                     .output()
                     .expect("Something went wrong");
             }
