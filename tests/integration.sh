@@ -13,3 +13,6 @@ echo "y\n" | confirm-before 'cat ./tests/resource.txt' | grep -q content; if [ $
 
 printf "  when a slow command is given it waits for it to finish - "
 echo "y\n" | confirm-before 'sleep 1; echo content' | grep -q content; if [ $? != 0 ]; then echo "FAIL"; exit 1; else echo "PASS"; fi
+
+printf "  when an invalid command is given it pipes stderr - "
+echo "y\n" | confirm-before 'invalid' | grep -q 'command not found'; if [ $? != 0 ]; then echo "FAIL"; exit 1; else echo "PASS"; fi
